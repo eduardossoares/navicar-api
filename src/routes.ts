@@ -6,6 +6,7 @@ import { detailUserController } from "./controllers/Users/DetailUserController";
 import { createAdController } from "./controllers/Ads/CreateAdController";
 
 import { authMiddleware } from "./middlewares/authMiddleware";
+import { uploadMiddleware } from "./middlewares/uploadMiddleware";
 
 export const router = Router();
 
@@ -15,4 +16,9 @@ router.post("/login", signInUserController.handle);
 router.get("/me", authMiddleware, detailUserController.handle);
 
 // Ads Routes
-router.post("/ads", authMiddleware, createAdController.handle);
+router.post(
+  "/ads",
+  authMiddleware,
+  uploadMiddleware,
+  createAdController.handle
+);
