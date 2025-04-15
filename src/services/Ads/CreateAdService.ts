@@ -1,4 +1,4 @@
-import { AdRequest } from "../../@types/AdRequest";
+import { CreateAdRequest } from "../../@types/CreateAdRequest";
 import prismaClient from "../../prisma";
 
 class CreateAdService {
@@ -14,7 +14,7 @@ class CreateAdService {
     model,
     user_id,
     images,
-  }: AdRequest) {
+  }: CreateAdRequest) {
     const stringYear = String(year);
 
     const ad = await prismaClient.ad.create({

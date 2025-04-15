@@ -1,6 +1,6 @@
 import { createAdService } from "../../services/Ads/CreateAdService";
 import { Request, Response } from "express";
-import { AdRequest } from "../../@types/AdRequest";
+import { CreateAdRequest } from "../../@types/CreateAdRequest";
 
 import { v2 as cloudinary } from "cloudinary";
 import { cloudinaryConfig } from "../../config/cloudinary";
@@ -19,7 +19,7 @@ class CreateAdController {
       phone,
       price,
       year,
-    }: AdRequest = req.body;
+    }: CreateAdRequest = req.body;
     const user_id = req.user_id;
 
     const files = req.files as Express.Multer.File[];
@@ -107,7 +107,6 @@ class CreateAdController {
       });
 
       res.status(201).json(ad);
-      return;
     } catch (error: Error | any) {
       console.log(error);
       res.status(500).json({
