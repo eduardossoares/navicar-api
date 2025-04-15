@@ -1,6 +1,6 @@
 import { createAdService } from "../../services/Ads/CreateAdService";
 import { Request, Response } from "express";
-import { CreateAdRequest } from "../../@types/CreateAdRequest";
+import { CreateAdRequest } from "../../@types/AdRequest";
 
 import { v2 as cloudinary } from "cloudinary";
 import { cloudinaryConfig } from "../../config/cloudinary";

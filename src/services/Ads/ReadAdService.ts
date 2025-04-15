@@ -1,14 +1,15 @@
 import prismaClient from "../../prisma";
-
-import { AdRequest } from "../../@types/AdRequest";
+import { ReadAdRequest } from "../../@types/AdRequest";
 
 class ReadAdService {
-  async execute({ id }: AdRequest) {
+  async execute({ id }: ReadAdRequest) {
     const ad = await prismaClient.ad.findUnique({
       where: {
         id,
       },
     });
+    if (!ad) throw new Error("Ad não encontrado");
+
     return ad;
   }
 }

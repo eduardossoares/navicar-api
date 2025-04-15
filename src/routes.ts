@@ -7,6 +7,7 @@ import { createAdController } from "./controllers/Ads/CreateAdController";
 import { readAllAdController } from "./controllers/Ads/ReadAllAdController";
 import { readAdController } from "./controllers/Ads/ReadAdController";
 import { removeAdController } from "./controllers/Ads/RemoveAdController";
+import { editAdController } from "./controllers/Ads/EditAdController";
 
 import { authMiddleware } from "./middlewares/authMiddleware";
 import { uploadMiddleware } from "./middlewares/uploadMiddleware";
@@ -27,4 +28,5 @@ router.post(
 );
 router.get("/ads", readAllAdController.handle);
 router.get("/ads/:id", readAdController.handle);
+router.put("/ads/:user_id/:id", authMiddleware, editAdController.handle);
 router.delete("/ads/:user_id/:id", authMiddleware, removeAdController.handle);

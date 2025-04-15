@@ -1,4 +1,4 @@
-import { CreateAdRequest } from "../../@types/CreateAdRequest";
+import { CreateAdRequest } from "../../@types/AdRequest";
 import prismaClient from "../../prisma";
 
 class CreateAdService {
