@@ -10,7 +10,6 @@ class DetailUserService {
       select: {
         id: true,
         email: true,
-        createdAt: true,
       },
     });
     return alreadyUserExists;
