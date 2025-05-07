@@ -3,7 +3,7 @@
     "target": "es2018", // Compatível com Node.js moderno
     "module": "commonjs", // Necessário para Node.js
     "outDir": "./dist", // Diretório de saída
-    "rootDir": ".", // Diretório raiz do código-fonte
+    "rootDir": "./src", // Diretório raiz do código-fonte
     "strict": true, // Ativa verificações rigorosas
     "esModuleInterop": true, // Melhor interoperabilidade com módulos
     "skipLibCheck": true, // Ignora erros em arquivos de definição
