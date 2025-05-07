@@ -24,4 +24,5 @@ app.use((err, req, res, next) => {
     });
     return;
 });
+app.listen(PORT, () => console.log("Server is running"));
 exports.default = app;
