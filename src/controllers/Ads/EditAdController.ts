@@ -9,10 +9,6 @@ interface AdItem {
 
 const adItems: AdItem[] = [
   {
-    item: "id",
-    error: "ID é obrigatório",
-  },
-  {
     item: "brand",
     error: "Marca é obrigatória",
   },
