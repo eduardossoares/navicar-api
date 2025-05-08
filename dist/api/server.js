@@ -7,9 +7,11 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const routes_1 = require("../routes");
 const app = (0, express_1.default)();
-const PORT = process.env.PORT || 3333;
 app.use(express_1.default.json());
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    origin: ["http://localhost:3000", "https://navicar-web.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+}));
 app.use(routes_1.router);
 app.use((err, req, res, next) => {
     if (err instanceof Error) {
