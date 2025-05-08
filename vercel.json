@@ -10,7 +10,13 @@
     {
       "src": "/(.*)",
       "dest": "src/api/server.ts",
-      "methods": ["GET", "POST", "PUT", "DELETE"] 
+      "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://navicar-web.vercel.app",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+        "Access-Control-Allow-Credentials": "true"
+      }
     }
   ]
 }

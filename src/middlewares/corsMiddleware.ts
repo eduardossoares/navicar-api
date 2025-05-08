@@ -6,24 +6,29 @@ export const corsMiddleware = (
   next: NextFunction
 ) => {
   const allowedOrigins = [
-    "http://localhost:3000",
-    "https://navicar-web.vercel.app",
+    process.env.NODE_ENV === "production"
+      ? "https://navicar-web.vercel.app"
+      : "http://localhost:3000",
   ];
-
   const origin = req.headers.origin;
 
-  if (!origin || allowedOrigins.includes(origin)) {
-    res.header("Access-Control-Allow-Origin", origin);
+  console.log(`[CORS] Método: ${req.method}, URL: ${req.url}, Origem: ${origin}`);
+
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  } else {
+    res.setHeader("Access-Control-Allow-Origin", allowedOrigins[0]); 
   }
 
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header(
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.setHeader(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
 
   if (req.method === "OPTIONS") {
+    console.log("[CORS] Respondendo a solicitação OPTIONS");
     res.status(200).end();
     return;
   }
