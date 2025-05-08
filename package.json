@@ -1,9 +1,9 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts": {
-    "dev": "tsnd src/server.ts --cache-clean",
+    "dev": "tsnd src/api/server.ts --cache-clean",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "postinstall": "prisma generate"
