@@ -48,6 +48,7 @@ const adItems: AdItem[] = [
 
 export class EditAdController {
   async handle(req: Request, res: Response) {
+    res.set("Cache-Control", "no-cache");
     const { id } = req.params;
     const {
       brand,

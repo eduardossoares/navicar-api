@@ -7,7 +7,10 @@
     "strict": true, // Ativa verificações rigorosas
     "esModuleInterop": true, // Melhor interoperabilidade com módulos
     "skipLibCheck": true, // Ignora erros em arquivos de definição
-    "forceConsistentCasingInFileNames": true // Consistência em maiúsculas/minúsculas
+    "forceConsistentCasingInFileNames": true, // Consistência em maiúsculas/minúsculas
+    "typeRoots": [
+      "./src/@types"
+    ]
   },
   "include": ["src/**/*"], // Inclui todos os arquivos em src/
   "exclude": ["node_modules", "dist"] // Exclui node_modules e dist

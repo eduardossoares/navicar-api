@@ -9,6 +9,7 @@ cloudinary.config(cloudinaryConfig);
 
 class CreateAdController {
   async handle(req: Request, res: Response) {
+    res.set("Cache-Control", "no-cache");
     const {
       model,
       brand,
@@ -21,7 +22,6 @@ class CreateAdController {
       year,
     }: CreateAdRequest = req.body;
     const user_id = req.user_id;
-
     const files = req.files as Express.Multer.File[];
 
     if (!user_id) {

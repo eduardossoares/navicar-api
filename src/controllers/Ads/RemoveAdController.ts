@@ -3,6 +3,7 @@ import { removeAdService } from "../../services/Ads/RemoveAdService";
 
 class RemoveAdController {
   async handle(req: Request, res: Response) {
+    res.set("Cache-Control", "no-cache");
     const user_id = req.user_id;
     if (!user_id) throw new Error("Usuário não encontrado");
     const { id } = req.params;
